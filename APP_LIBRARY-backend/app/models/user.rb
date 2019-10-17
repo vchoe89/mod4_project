@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  has_many :your_games
+  has_many :user_games
 end

@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_191040) do
+ActiveRecord::Schema.define(version: 2019_10_17_195056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "all_games", force: :cascade do |t|
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.string "front_cover"
+    t.string "back_cover"
+    t.integer "rating"
+    t.string "screenshot"
+    t.string "video_url"
+    t.string "description"
+    t.string "system"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_games", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "game_id"
     t.string "title"
     t.string "front_cover"
     t.string "back_cover"
@@ -30,21 +45,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_191040) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "your_games", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "game_id"
-    t.string "title"
-    t.string "front_cover"
-    t.string "back_cover"
-    t.integer "rating"
-    t.string "screenshot"
-    t.string "video_url"
-    t.string "description"
-    t.string "system"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
