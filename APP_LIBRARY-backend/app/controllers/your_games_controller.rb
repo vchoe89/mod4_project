@@ -1,0 +1,2 @@
+class YourGamesController < ApplicationController
+end
