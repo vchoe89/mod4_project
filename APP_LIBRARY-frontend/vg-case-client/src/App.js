@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './containers/Navbar'
+import MainContainer from './components/MainContainer';
+import GameList from './components/GameList'
+const URL = "http://localhost:3000/games"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      allGames: []
+    }
+  }
+
+    componentDidMount() {
+      fetch(URL)
+      .then(r => r.json())
+      .then(data => {
+        this.setState({allGames: data})
+      })
+    }
+  
+
+  render() {
+    return (
+      <div>
+      <Navbar />
+      <MainContainer games={this.state.allGames} />
+      </div>
+    )
+  }
 }
 
 export default App;
