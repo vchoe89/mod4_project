@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './containers/Navbar'
 import MainContainer from './components/MainContainer';
 import GameList from './components/GameList'
+import GameForm from './components/GameForm'
 const URL = "http://localhost:3000/games"
 
 class App extends React.Component {
@@ -25,8 +26,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <Navbar />
-      <MainContainer games={this.state.allGames} />
+        <Navbar />
+        <MainContainer games={this.state.allGames} />
       </div>
     )
   }
