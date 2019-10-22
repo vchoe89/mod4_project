@@ -51,7 +51,7 @@ class App extends React.Component {
             let gameObj = this.state.allGames.find(game => game.id === gameId)
             return <Details game={gameObj} />
           }}
-          <Route />
+          {/* <Route /> */}
       </Switch>
       </div>
     )
