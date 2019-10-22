@@ -17,7 +17,27 @@
   color: white;
 }
 
+
 .App-link {
   color: #09d3ac;
 }
 
+.rating {
+  font-weight: bold;
+}
+
+body{
+  background: url("https://i.pinimg.com/originals/35/64/76/3564767abfcd563267964523de03f571.jpg");
+  background-size:contain;
+  background-position:top;
+  background: cover;
+  background-repeat: repeat;
+  width: 100%;
+  height: auto;
+}
+
+.ui.centered.card{
+  padding: 5px;
+  background-color: white;
+
+}
