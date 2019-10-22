@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Image, Embed } from 'semantic-ui-react'
-import ImgsViewer from 'react-images-viewer'
+// import ImgsViewer from 'react-images-viewer'
+
 
 
 

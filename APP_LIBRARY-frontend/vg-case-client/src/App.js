@@ -1,4 +1,5 @@
 import React from 'react';
+import Details from './containers/Details'
 import './App.css';
 import {Route, Switch} from 'react-router-dom'
 import Navbar from './containers/Navbar'
@@ -44,15 +45,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <Navbar ViewUserGames={this.ViewUserGames} onChangeSearch={this.onChangeSearch}/>
-      <Switch>
-        <Route path='/games/:id' render={(props) => {
-            let gameId = props.match.params.id
-            let gameObj = this.state.allGames.find(game => game.id === gameId)
-            return <Details game={gameObj} />
-          }}
-          {/* <Route /> */}
-      </Switch>
+        <Navbar ViewUserGames={this.ViewUserGames} onChangeSearch={this.onChangeSearch}/>
+        <Switch>
+          <Route path='/games/:id' render={(props) => {
+              let gameId = props.match.params.id
+              let gameObj = this.state.allGames.find(game => game.id === gameId)
+              return <Details game={gameObj} />
+            }}/>
+            {/* <Route /> */}
+        </Switch>
       </div>
     )
   }
