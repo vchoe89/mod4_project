@@ -1,11 +1,14 @@
+import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import React from 'react';
 import Details from './containers/Details'
 import './App.css';
-import {Route, Switch} from 'react-router-dom'
-import Navbar from './containers/Navbar'
+import Navbar from './containers/Navbar';
 import MainContainer from './components/MainContainer';
-import YourGames from './components/YourGames.js'
-const URL = "http://localhost:3000/games"
+import GameList from './components/GameList';
+import YourGames from './components/YourGames';
+import GameForm from './components/GameForm';
+const URL = "http://localhost:3000/games";
 
 class App extends React.Component {
   constructor() {
@@ -44,17 +47,24 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Navbar ViewUserGames={this.ViewUserGames} onChangeSearch={this.onChangeSearch}/>
-        <Switch>
-          <Route path='/games/:id' render={(props) => {
+
+      <Router>
+        <div>
+          <Navbar />
+          <Switch>
+            <Route path='/allgames' exact render={() => {return <MainContainer games={this.state.allGames}/>}}/>
+            {/* <Route path='/yourgames' exact component={YourGames}/> */}
+            <Route path='/addgame' exact component={GameForm} />
+            {/* <Route path='/' exact component={Login}/> */}
+            <Route path='/games/:id' render={(props) => {
               let gameId = props.match.params.id
               let gameObj = this.state.allGames.find(game => game.id === gameId)
               return <Details game={gameObj} />
             }}/>
-            {/* <Route /> */}
-        </Switch>
-      </div>
+          </Switch>
+        </div>
+      </Router>
+
     )
   }
 }
