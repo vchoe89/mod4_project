@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
 import {Link} from 'react-router-dom';
-import GameForm from '../components/GameForm'
-import {Input, Menu, Header, Container} from 'semantic-ui-react'
+import {Input, Menu} from 'semantic-ui-react'
 
 class NavBar extends Component {
 
@@ -25,6 +23,12 @@ class NavBar extends Component {
               as={ Link }
               to='/addgame'
               name='Add Game'
+            />
+            <Menu.Item
+              position='right'
+              as={ Link }
+              to='/'
+              name='login'
             />
             <Menu.Menu position='right'>
               <Menu.Item>

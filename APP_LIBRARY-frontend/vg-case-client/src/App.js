@@ -1,13 +1,15 @@
-import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+// import ReactDOM from 'react-dom';
+// import GameList from './components/GameList';
+// import YourGames from './components/YourGames';
 import React from 'react';
-import Details from './containers/Details'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
+import Details from './containers/Details'
+import Login from './components/Login'
 import Navbar from './containers/Navbar';
 import MainContainer from './components/MainContainer';
-import GameList from './components/GameList';
-import YourGames from './components/YourGames';
 import GameForm from './components/GameForm';
+
 const URL = "http://localhost:3000/games";
 
 class App extends React.Component {
@@ -45,22 +47,7 @@ class App extends React.Component {
       this.setState({usersGames: [...this.state.usersGames, game]})
     }
 
-    // handleSubmit = (e, game) => {
-    //   console.log(e)
-    //   console.log(game)
-    //   // e.preventDefault()
-    //   // e.target.reset()
-    //   // fetch(URL, {
-    //   //   method: "POST",
-    //   //   headers: {
-    //   //     "Content-Type": "application/json",
-    //   //     "Accept": "application/json"
-    //   //   },
-    //   //   body: JSON.stringify({
-
-    //   //   })
-    //   // })
-    // }
+    
 
   render() {
     return (
@@ -78,6 +65,8 @@ class App extends React.Component {
               let gameObj = this.state.allGames.find(game => game.id === gameId)
               return <Details game={gameObj}/>
             }}/>
+
+            <Route path='/' exact component={Login} />
           </Switch>
         </div>
       </Router>

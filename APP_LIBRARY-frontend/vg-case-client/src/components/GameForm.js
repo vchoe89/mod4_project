@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Checkbox, Form, Grid } from 'semantic-ui-react'
+import { Button, Form, Grid } from 'semantic-ui-react'
 const URL = "http://localhost:3000/games"
 
 class GameForm extends Component {
