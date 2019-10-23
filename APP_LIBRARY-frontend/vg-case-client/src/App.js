@@ -45,6 +45,23 @@ class App extends React.Component {
       this.setState({usersGames: [...this.state.usersGames, game]})
     }
 
+    // handleSubmit = (e, game) => {
+    //   console.log(e)
+    //   console.log(game)
+    //   // e.preventDefault()
+    //   // e.target.reset()
+    //   // fetch(URL, {
+    //   //   method: "POST",
+    //   //   headers: {
+    //   //     "Content-Type": "application/json",
+    //   //     "Accept": "application/json"
+    //   //   },
+    //   //   body: JSON.stringify({
+
+    //   //   })
+    //   // })
+    // }
+
   render() {
     return (
 
@@ -53,13 +70,13 @@ class App extends React.Component {
           <Navbar />
           <Switch>
             <Route path='/allgames' exact render={() => {return <MainContainer games={this.state.allGames}/>}}/>
-            {/* <Route path='/yourgames' exact component={YourGames}/> */}
+
             <Route path='/addgame' exact component={GameForm} />
-            {/* <Route path='/' exact component={Login}/> */}
+
             <Route path='/games/:id' render={(props) => {
               let gameId = props.match.params.id
               let gameObj = this.state.allGames.find(game => game.id === gameId)
-              return <Details game={gameObj} />
+              return <Details game={gameObj}/>
             }}/>
           </Switch>
         </div>
